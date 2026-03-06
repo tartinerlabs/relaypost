@@ -76,11 +76,3 @@ next-env.d.ts
 .windsurf/
 .zencoder/
 
-# OpenNext
-.open-next
-
-# wrangler files
-.wrangler
-.dev.vars*
-!.dev.vars.example
-!.env.example
