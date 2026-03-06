@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { signIn } from "@/lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 
 export default function SignInPage() {
   return (
@@ -22,7 +22,10 @@ export default function SignInPage() {
           variant="outline"
           className="w-full"
           onClick={() =>
-            signIn.social({ provider: "google", callbackURL: "/dashboard" })
+            authClient.signIn.social({
+              provider: "google",
+              callbackURL: "/dashboard",
+            })
           }
         >
           <GoogleIcon />
