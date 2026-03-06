@@ -1,12 +1,16 @@
-import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
+import { betterAuth } from "better-auth/minimal";
 import { nextCookies } from "better-auth/next-js";
 import { organization } from "better-auth/plugins";
-import { db } from "@/lib/db";
-import * as schema from "@/lib/db/schema";
+import { db } from "@/db";
+import * as schema from "@/db/schema";
 
 export const auth = betterAuth({
-  database: drizzleAdapter(db, { provider: "pg", schema, usePlural: true }),
+  database: drizzleAdapter(db, {
+    provider: "pg",
+    schema,
+    usePlural: true,
+  }),
   emailVerification: {
     sendVerificationEmail: async ({ user, url }) => {
       console.log(`[Auth] Verification email for ${user.email}: ${url}`);
