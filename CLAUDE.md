@@ -5,11 +5,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-pnpm dev          # Start dev server (Next.js on localhost:3000)
-pnpm build        # Production build
-pnpm lint         # Lint with Biome (biome check)
-pnpm format       # Format with Biome (biome format --write)
+bun install              # Install dependencies
+bun run dev              # Start dev server (Next.js on localhost:3000)
+bun run build            # Production build
+bun run lint             # Lint with Biome (biome check)
+bun run format           # Format with Biome (biome format --write)
+bun run skills:install   # Restore skills from skills-lock.json (run after clone)
 ```
+
+`skills/` contains symlinks to `.agents/skills/` which is gitignored — run `bun run skills:install` after cloning to restore them.
 
 No test framework is configured yet.
 
@@ -61,9 +65,11 @@ Relaypost is a B2B cross-platform social media scheduling and publishing tool. U
 - **Payments**: Stripe (subscriptions)
 - **Hosting**: Vercel
 - **Linting/Formatting**: Biome 2 (2-space indent, recommended rules, import organizing)
-- **Package Manager**: pnpm
+- **Package Manager**: bun
 
 ## Architecture
+
+> The architecture below is the **planned** design. The codebase is in early setup — currently only the Next.js scaffold exists. Build toward this structure as features are added.
 
 ### Data Model (Core Entities)
 
@@ -96,11 +102,7 @@ src/
   lib/
     auth/                 # Better Auth config
     db/                   # Drizzle schema, migrations, queries
-    platforms/            # Platform-specific API adapters
-      twitter.ts
-      linkedin.ts
-      bluesky.ts
-      threads.ts
+    platforms/            # Platform-specific API adapters (twitter.ts, linkedin.ts, bluesky.ts, threads.ts)
     queue/                # BullMQ job definitions
     stripe/               # Stripe billing helpers
   types/                  # Shared TypeScript types
