@@ -20,6 +20,10 @@
       "env": {
         "LINEAR_API_KEY": "${LINEAR_API_KEY}"
       }
+    },
+    "shadcn": {
+      "command": "bunx",
+      "args": ["shadcn@latest", "mcp"]
     }
   }
 }
