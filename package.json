@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "skills:install": "skills experimental_install"
+    "skills:install": "skills experimental_install",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "16.1.6",
@@ -17,14 +18,22 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
+    "@commitlint/cli": "^20.4.3",
+    "@commitlint/config-conventional": "^20.4.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "lint-staged": "^16.3.2",
     "skills": "^1.4.4",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*": [
+      "biome check --write --no-errors-on-unmatched"
+    ]
   },
   "ignoreScripts": [
     "sharp",
