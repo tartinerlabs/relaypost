@@ -57,7 +57,7 @@ Relaypost is a B2B cross-platform social media scheduling and publishing tool. U
 
 - **Framework**: Next.js 16 (App Router) + TypeScript + React Compiler
 - **Styling**: Tailwind CSS v4
-- **Components**: HeroUI v3
+- **Components**: shadcn/ui
 - **Database**: PostgreSQL via Neon, Drizzle ORM
 - **Auth**: Better Auth (teams/orgs support)
 - **Job Queue**: BullMQ (via Upstash Redis)
