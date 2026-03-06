@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { EmptyState } from "@/components/dashboard/empty-state";
 import { Button } from "@/components/ui/button";
 
 export default function PostsPage() {
@@ -10,11 +11,7 @@ export default function PostsPage() {
           New Post
         </Button>
       </div>
-      <div className="flex flex-col items-center justify-center rounded-lg border border-dashed border-border py-16 text-center">
-        <p className="text-sm text-muted-foreground">
-          No posts yet. Create your first post to get started.
-        </p>
-      </div>
+      <EmptyState message="No posts yet. Create your first post to get started." />
     </div>
   );
 }
