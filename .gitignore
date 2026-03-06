@@ -45,7 +45,6 @@ next-env.d.ts
 .agent/
 .agents/
 .augment/
-.claude/
 .codebuddy/
 .commandcode/
 .continue/
@@ -76,4 +75,5 @@ next-env.d.ts
 .windsurf/
 .zencoder/
 
-.env*.local
+# Claude
+.claude/settings.local.json
